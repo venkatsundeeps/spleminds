@@ -1,10 +1,18 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="relative bg-white  shadow dark:bg-gray-800">
+    <nav className=" bg-white  shadow dark:bg-gray-800 -mt-10 top-0 sticky ">
       <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
@@ -58,17 +66,22 @@ const Header = () => {
                 type="button"
                 className="flex items-center focus:outline-none"
                 aria-label="toggle profile dropdown"
+                onClick={toggleDropdown}
               >
                 <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                  <Image
-                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-                    className="object-cover w-full h-full"
-                    width={100}
-                    height={100}
-                    alt="avatar"
-                  />
+                  <UserButton />
                 </div>
               </button>
+              {isOpen && (
+                <div className="absolute right-0 mt-20 w-32 bg-white rounded-md overflow-hidden shadow-xl z-10">
+                  <Link
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
+                  >
+                    Sign out
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
