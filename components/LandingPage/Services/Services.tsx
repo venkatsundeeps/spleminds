@@ -7,11 +7,16 @@ const Services = () => {
       className="relative block px-6 py-10 md:py-20 md:px-10  "
     >
       <div className="relative mx-auto max-w-5xl text-center ">
-        <span className="text-white my-3 flex items-center justify-center font-medium uppercase tracking-wider">
+        <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider">
           Why choose us
         </span>
-        <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
-          Enhance Your Business with Our ServiceNow Solutions
+        <h2 className="block w-full bg-gradient-to-b from-white to-gray-900 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+          Enhance Your Business with Our{" "}
+          <span className="text-black">
+            ServiceN
+            <span className="text-green-600">o</span>w
+          </span>{" "}
+          Solutions
         </h2>
         <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
           We offer comprehensive ServiceNow solutions tailored to your business
@@ -21,7 +26,7 @@ const Services = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+        <div className="rounded-md border border-neutral-800 bg-neutral-800 p-8 text-center shadow">
           <div
             className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
             style={{
@@ -56,7 +61,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+        <div className="rounded-md border border-neutral-800 bg-neutral-800 p-8 text-center shadow">
           <div
             className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
             style={{
@@ -93,7 +98,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+        <div className="rounded-md border border-neutral-800 bg-neutral-800 p-8 text-center shadow">
           <div
             className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
             style={{

@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <>
       <section
-        className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]"
+        className="relative z-10 overflow-hidden  py-20 dark:bg-dark lg:py-[120px]"
         id="Contact"
       >
         <div className="">
@@ -141,7 +141,7 @@ const Contact = () => {
                   <div>
                     <button
                       type="submit"
-                      className="w-full rounded border border-primary bg-primary p-3 text-black transition hover:bg-opacity-90"
+                      className="w-full bg-blue-600 rounded border border-primary bg-primary p-3 text-black transition hover:bg-opacity-90"
                     >
                       Send Message
                     </button>

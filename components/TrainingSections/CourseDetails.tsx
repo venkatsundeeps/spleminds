@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const CourseDetails = () => {
@@ -39,9 +40,11 @@ const CourseDetails = () => {
                   <p className="mt-2 text-lg leading-8 font-extrabold tracking-tight text-gray-900 sm:text-xl text-center">
                     {course.description}
                   </p>
-                  <button className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                    Register Now
-                  </button>
+                  <Link href="#register">
+                    <button className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                      Register Now
+                    </button>
+                  </Link>
                 </div>
               ))}
             </div>

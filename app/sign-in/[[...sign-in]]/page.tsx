@@ -29,7 +29,7 @@ export default function Page() {
               className=" w-full  rounded-r-3xl"
               style={{
                 backgroundImage:
-                  "url('https://res.cloudinary.com/dzsr56zkk/image/upload/v1710617637/fbjolbu64umqohwodlcz.jpg')",
+                  "url('https://res.cloudinary.com/dzsr56zkk/image/upload/v1710616482/m8qgxy0cpd00gnuddux7.svg')",
               }}
             ></div>
           </div>

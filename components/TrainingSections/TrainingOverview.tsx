@@ -20,13 +20,13 @@ const TrainingOverview = () => {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center">
               <Link
-                href="#"
+                href="#register"
                 className="m-1.5 py-2.5 px-5 rounded-md bg-teal-800 text-white font-semibold uppercase hover:bg-teal-800"
               >
                 Start your journey
               </Link>
               <Link
-                href="#"
+                href="/sign-in"
                 className="m-1.5 py-2.5 px-5 rounded-md border-2 border-teal-400 text-teal-800 font-semibold uppercase hover:text-teal-800 hover:border-teal-400"
               >
                 Take a Free Class

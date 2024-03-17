@@ -10,7 +10,7 @@ function AboutUs() {
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
               About Us
             </h2>
-            <p className="mt-4 text-gray-600 text-lg">
+            <p className="mt-4 text-slate-700 text-lg">
               We are a dedicated team of consultants committed to understanding
               your business needs and providing tailored solutions to enhance
               your operations. With years of experience in the industry, we
