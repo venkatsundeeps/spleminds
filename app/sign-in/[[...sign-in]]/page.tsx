@@ -4,7 +4,7 @@ import { useClerk } from "@clerk/clerk-react";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-export default function Page() {
+export default function SignPage() {
   const { session } = useClerk();
   const pathname = usePathname();
   useEffect(() => {
