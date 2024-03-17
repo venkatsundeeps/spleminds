@@ -1,18 +1,17 @@
-"use client";
 import { SignIn } from "@clerk/nextjs";
 import { useClerk } from "@clerk/clerk-react";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export default function SignPage() {
-  const { session } = useClerk();
-  const pathname = usePathname();
-  useEffect(() => {
-    if (session) {
-      // If the user is signed in, redirect to the dashboard
-      window.location.href = "/dashboard";
-    }
-  }, [session, pathname]);
+  // const { session } = useClerk();
+  // const pathname = usePathname();
+  // useEffect(() => {
+  //   if (session) {
+  //     // If the user is signed in, redirect to the dashboard
+  //     window.location.href = "/dashboard";
+  //   }
+  // }, [session, pathname]);
 
   return (
     <>
