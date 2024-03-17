@@ -5,10 +5,12 @@ import Services from "@/components/LandingPage/Services/Services";
 import AboutUs from "@/components/LandingPage/About/About";
 import Work from "@/components/LandingPage/Work/Work";
 import Image from "next/image";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
     <main className="flex  flex-col items-center justify-between w-full ">
+      <Navbar />
       <HeroSection />
       <Services />
       {/* <Work /> */}
