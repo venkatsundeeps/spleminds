@@ -20,7 +20,8 @@ const Navbar = () => {
   //     : "login"
   //   : "Contact";
 
-  const buttonText = isTrainingPage ? "View Dashboard" : "Contact";
+  const buttonText =
+    isTrainingPage && isSignedIn ? "View Dashboard" : "Contact";
   const href = isTrainingPage ? "/dashboard" : "#Contact";
 
   const toggleNav = () => {
