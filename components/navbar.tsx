@@ -24,7 +24,7 @@ const Navbar = () => {
       ? "/dashboard"
       : isTrainingPage
       ? "/sign-in"
-      : "#contact";
+      : "#Contact";
 
   const toggleNav = () => {
     setNavVisible(!isNavVisible);

@@ -1,89 +1,28 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { useUser } from "@clerk/clerk-react";
 import Header from "./Header";
-import { useSession, useOrganizationList } from "@clerk/nextjs";
-import router from "next/router";
 
-const Sidebar: React.FC = (): ReactNode => {
-  const {
-    isLoaded,
-
-    createOrganization,
-    setActive,
-    userMemberships,
-    userInvitations,
-    userSuggestions,
-  } = useOrganizationList();
-  // Replace "path/to/OrganizationResource" with the actual path to the OrganizationResource type
-
-  const managementCategories = [
-    {
-      title: "Batch Management",
-      items: [
-        { name: "View Batch List", href: "/dashboard/admin/batch-list" },
-        { name: "Add New Batch", href: "/dashboard/admin/add-batch" },
-        { name: "Edit Batch Details", href: "/dashboard/admin/edit-batch" },
-        { name: "Delete Batch", href: "/dashboard/admin/delete-batch" },
-      ],
-      href: "/dashboard/admin/course",
-    },
-    {
-      title: "Job Management",
-      items: [
-        { name: "View Job List", href: "/dashboard/admin/job-list" },
-        { name: "Add New Job", href: "/dashboard/admin/add-job" },
-        { name: "Edit Job Details", href: "/dashboard/admin/edit-job" },
-        { name: "Delete Job", href: "/dashboard/admin/delete-job" },
-      ],
-      href: "/admin/course",
-    },
-    {
-      title: "Assignment Management",
-      items: [
-        {
-          name: "View Assignment List",
-          href: "/dashboard/admin/assignment-list",
-        },
-        { name: "Add New Assignment", href: "/dashboard/admin/add-assignment" },
-        {
-          name: "Edit Assignment Details",
-          href: "/dashboard/admin/edit-assignment",
-        },
-      ],
-      href: "/dashboard/admin/assignments",
-    },
-    {
-      title: "User Management",
-      items: [
-        { name: "View User List", href: "/dashboard/admin/user-list" },
-        { name: "Add New User", href: "/dashboard/admin/add-user" },
-        { name: "Edit User Details", href: "/dashboard/admin/edit-user" },
-        { name: "Delete User", href: "/dashboard/admin/delete-user" },
-      ],
-      href: "/dashboard/admin/users",
-    },
-  ];
-
+const UserSidebar: React.FC = (): ReactNode => {
   const userOptions = [
     {
       title: "View Batches",
       items: [
         {
           name: "View Available Batches",
-          href: "/dashboard/user/batches",
+          href: "/dashboard/user/batchesavailable",
         },
-        { name: "View Batch Details", href: "/dashboard/user/batches" },
+        { name: "View Batch Details", href: "/dashboard/user/batchdetails" },
       ],
-      href: "/dashboard/user/batches",
+      href: "/dashboard/user/batchesavailable",
     },
     {
       title: "View Jobs",
       items: [
         { name: "View Available Jobs", href: "/dashboard/user/jobsavailable" },
-        // { name: "View Job Details", href: "/dashboard/user/jobdetails" },
+        { name: "View Job Details", href: "/dashboard/user/jobdetails" },
       ],
       href: "/dashboard/user/jobs",
     },
@@ -98,21 +37,18 @@ const Sidebar: React.FC = (): ReactNode => {
       href: "/dashboard/user/assignments",
     },
   ];
-  const { session } = useSession();
 
-  const user = session?.user;
-  const userRole = session?.user?.organizationMemberships ?? []; // Add nullish coalescing operator to provide a default empty array value
-
-  const isAdmin = userRole.some(
-    (membership) => membership.role === "org:admin"
-  );
-  console.log(isAdmin);
-  const categories = isAdmin ? managementCategories : userOptions;
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
 
   const toggleExpand = (index: number) => {
-    setExpandedCategory(expandedCategory === index ? null : index);
+    if (expandedCategory === index) {
+      setExpandedCategory(null);
+    } else {
+      setExpandedCategory(index);
+    }
   };
+  const { user } = useUser();
+
   return (
     <>
       <aside className="flex flex-col z-10 fixed w-64 h-screen px-4 top-16 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
@@ -140,7 +76,7 @@ const Sidebar: React.FC = (): ReactNode => {
 
         <div className="h-full mt-6 px-4 pb-4 overflow-y-auto  dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
-            {categories.map((category, index) => (
+            {userOptions.map((category, index) => (
               <li key={index} className="group bg-gray-300 rounded-xl">
                 <div
                   className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer"
@@ -168,4 +104,4 @@ const Sidebar: React.FC = (): ReactNode => {
   );
 };
 
-export default Sidebar;
+export default UserSidebar;

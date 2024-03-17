@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "./_components/sidebar";
+import UserSidebar from "./_components/user-sidebar";
 import Header from "./_components/Header";
 
 const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
@@ -10,7 +11,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
       <Header />
       <div className="flex flex-grow">
         <Sidebar />
-        <main className="flex-grow flex items-center justify-center">
+        <main className="flex-grow flex items-center justify-center ml-32 -mt-16">
           {children}
         </main>
       </div>

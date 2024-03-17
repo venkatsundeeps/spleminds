@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
+import { useClerk } from "@clerk/clerk-react";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { signOut } = useClerk();
+  const router = useRouter();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -69,17 +73,24 @@ const Header = () => {
                 onClick={toggleDropdown}
               >
                 <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                  <UserButton />
+                  {/* <UserButton /> */}
+                  <Image
+                    src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+                    className="w-32 rounded-full"
+                    width={32}
+                    height={32}
+                    alt="Avatar"
+                  />
                 </div>
               </button>
               {isOpen && (
                 <div className="absolute right-0 mt-20 w-32 bg-white rounded-md overflow-hidden shadow-xl z-10">
-                  <Link
-                    href="#"
+                  <button
+                    onClick={() => signOut(() => router.push("/sign-in"))}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
                   >
                     Sign out
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
