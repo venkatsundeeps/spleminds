@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const TrainingOverview = () => {
   return (
-    <section className="relative w-full h-[70%] flex flex-col justify-center items-center bg-gray-50 overflow-hidden">
+    <section className="relative w-full h-[70%] flex flex-col justify-center items-center bg-bg-custom-color overflow-hidden">
       <div className=" pt-10  w-full flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600">
           <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">

@@ -18,6 +18,12 @@ const config: Config = {
         "motion-safe": "motion-safe",
         "motion-reduce": "motion-reduce",
       },
+
+      colors: {
+        "custom-color": "#b96c93",
+        "bg-custom-color": "#E6E0E9",
+        "bg-custom-color-2": "#DCD1E2",
+      },
     },
   },
   plugins: [],

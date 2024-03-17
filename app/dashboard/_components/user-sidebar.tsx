@@ -3,38 +3,27 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { ReactNode, useState } from "react";
 import { useUser } from "@clerk/clerk-react";
-import Header from "./Header";
 
 const UserSidebar: React.FC = (): ReactNode => {
   const userOptions = [
     {
       title: "View Batches",
-      items: [
-        {
-          name: "View Available Batches",
-          href: "/dashboard/user/batchesavailable",
-        },
-        { name: "View Batch Details", href: "/dashboard/user/batchdetails" },
-      ],
-      href: "/dashboard/user/batchesavailable",
+
+      href: "/dashboard/user/batches",
     },
     {
       title: "View Jobs",
-      items: [
-        { name: "View Available Jobs", href: "/dashboard/user/jobsavailable" },
-        { name: "View Job Details", href: "/dashboard/user/jobdetails" },
-      ],
+
       href: "/dashboard/user/jobs",
     },
     {
       title: "View Assignments",
-      items: [
-        {
-          name: "View Assigned Assignments",
-          href: "/dashboard/user/assignments",
-        },
-      ],
+
       href: "/dashboard/user/assignments",
+    },
+    {
+      title: "Upcoming Sessions",
+      href: "/dashboard/user/sessions",
     },
   ];
 
@@ -74,17 +63,19 @@ const UserSidebar: React.FC = (): ReactNode => {
           </p>
         </div>
 
-        <div className="h-full mt-6 px-4 pb-4 overflow-y-auto  dark:bg-gray-800">
+        <div className="h-full mt-6 px-4 pb-4 overflow-y-auto dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
             {userOptions.map((category, index) => (
               <li key={index} className="group bg-gray-300 rounded-xl">
                 <div
-                  className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer"
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:text-white  dark:hover:bg-gray-700 group cursor-pointer"
                   onClick={() => toggleExpand(index)}
                 >
-                  <div className="ms-3">{category.title}</div>
+                  <div className="ms-3">
+                    <Link href={category.href}>{category.title}</Link>
+                  </div>
                 </div>
-                <ul
+                {/* <ul
                   className={`pl-4 ${
                     expandedCategory === index ? "" : "hidden"
                   }`}
@@ -94,7 +85,7 @@ const UserSidebar: React.FC = (): ReactNode => {
                       <Link href={item.href}>{item.name}</Link>
                     </li>
                   ))}
-                </ul>
+                </ul> */}
               </li>
             ))}
           </ul>

@@ -14,17 +14,14 @@ const Navbar = () => {
   // const buttonText = isTrainingPage ? "Login" : "Contact";
   const { session } = useClerk();
   const isSignedIn = !!session;
-  const buttonText = isTrainingPage
-    ? isSignedIn
-      ? "View Dashboard"
-      : "login"
-    : "Contact";
-  const href =
-    isTrainingPage && isSignedIn
-      ? "/dashboard"
-      : isTrainingPage
-      ? "/sign-in"
-      : "#Contact";
+  // const buttonText = isTrainingPage
+  //   ? isSignedIn
+  //     ? "View Dashboard"
+  //     : "login"
+  //   : "Contact";
+
+  const buttonText = isTrainingPage ? "View Dashboard" : "Contact";
+  const href = isTrainingPage ? "/dashboard" : "#Contact";
 
   const toggleNav = () => {
     setNavVisible(!isNavVisible);
@@ -37,7 +34,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-blue-900 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav className="bg-custom-color dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"
@@ -51,6 +48,7 @@ const Navbar = () => {
             width={32}
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+            {/* https://res.cloudinary.com/dzsr56zkk/image/upload/v1710711674/og6hhxrxk5cykwltu2ny.png */}
             Spleminds
           </span>
         </Link>

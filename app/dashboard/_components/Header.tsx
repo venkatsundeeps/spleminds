@@ -5,6 +5,7 @@ import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
 import { useClerk } from "@clerk/clerk-react";
 import { useRouter } from "next/navigation";
+import { useSession, useOrganizationList } from "@clerk/nextjs";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,15 @@ const Header = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  const { session } = useSession();
+
+  const user = session?.user;
+  const userRole = session?.user?.organizationMemberships ?? []; // Add nullish coalescing operator to provide a default empty array value
+
+  const isAdmin = userRole.some(
+    (membership) => membership.role === "org:admin"
+  );
 
   return (
     <nav className=" bg-white  shadow dark:bg-gray-800 -mt-10 top-0 sticky ">
@@ -60,12 +70,15 @@ const Header = () => {
               </Link>
             </div> */}
             <div className="flex items-center mt-4 lg:mt-0">
-              <button
-                className="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                aria-label="show notifications"
-              >
-                {/* SVG goes here */}
-              </button>
+              <Link href={isAdmin ? "/dashboard/admin" : "/dashboard/user"}>
+                <button
+                  type="button"
+                  className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  aria-label="show notifications"
+                >
+                  View Dashboard
+                </button>
+              </Link>
               <button
                 type="button"
                 className="flex items-center focus:outline-none"

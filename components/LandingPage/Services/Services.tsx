@@ -10,7 +10,7 @@ const Services = () => {
         <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider">
           Why choose us
         </span>
-        <h2 className="block w-full bg-gradient-to-b from-white to-gray-900 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+        <h2 className="block w-full bg-gradient-to-b from-blue-500 to-gray-900 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
           Enhance Your Business with Our{" "}
           <span className="text-black">
             ServiceN

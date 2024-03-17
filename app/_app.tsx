@@ -14,3 +14,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
+
+// This file used for redirecting to signin page if user is not signed in
