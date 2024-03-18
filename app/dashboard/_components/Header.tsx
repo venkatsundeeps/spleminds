@@ -2,28 +2,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { UserButton } from "@clerk/nextjs";
-import { useClerk } from "@clerk/clerk-react";
 import { useRouter } from "next/navigation";
-import { useSession, useOrganizationList } from "@clerk/nextjs";
+// import { UserButton } from "@clerk/nextjs";
+// import { useClerk } from "@clerk/clerk-react";
+
+// import { useSession, useOrganizationList } from "@clerk/nextjs";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { signOut } = useClerk();
-  const router = useRouter();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
-  const { session } = useSession();
-
-  const user = session?.user;
-  const userRole = session?.user?.organizationMemberships ?? []; // Add nullish coalescing operator to provide a default empty array value
-
-  const isAdmin = userRole.some(
-    (membership) => membership.role === "org:admin"
-  );
 
   return (
     <nav className=" bg-white  shadow dark:bg-gray-800 -mt-10 top-0 sticky ">
@@ -70,7 +60,7 @@ const Header = () => {
               </Link>
             </div> */}
             <div className="flex items-center mt-4 lg:mt-0">
-              <Link href={isAdmin ? "/dashboard/admin" : "/dashboard/user"}>
+              <Link href={"/dashboard"}>
                 <button
                   type="button"
                   className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
@@ -99,7 +89,7 @@ const Header = () => {
               {isOpen && (
                 <div className="absolute right-0 mt-20 w-32 bg-white rounded-md overflow-hidden shadow-xl z-10">
                   <button
-                    onClick={() => signOut(() => router.push("/sign-in"))}
+                    // onClick={}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-500 hover:text-white"
                   >
                     Sign out

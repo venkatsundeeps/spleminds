@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { useClerk } from "@clerk/clerk-react";
+// import { useClerk } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isNavVisible, setNavVisible] = useState(false);
@@ -12,16 +12,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // const buttonText = isTrainingPage ? "Login" : "Contact";
-  const { session } = useClerk();
-  const isSignedIn = !!session;
+  // const { session } = useClerk();
+  // const isSignedIn = !!session;
   // const buttonText = isTrainingPage
   //   ? isSignedIn
   //     ? "View Dashboard"
   //     : "login"
   //   : "Contact";
 
-  const buttonText =
-    isTrainingPage && isSignedIn ? "View Dashboard" : "Contact";
+  const buttonText = "Contact";
   const href = isTrainingPage ? "/dashboard" : "#Contact";
 
   const toggleNav = () => {
@@ -35,7 +34,7 @@ const Navbar = () => {
   // }
 
   return (
-    <nav className="bg-custom-color dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav className="bg-blue-900 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"

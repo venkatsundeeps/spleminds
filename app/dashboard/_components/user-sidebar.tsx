@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactNode, useState } from "react";
-import { useUser } from "@clerk/clerk-react";
 
 const UserSidebar: React.FC = (): ReactNode => {
   const userOptions = [
@@ -36,7 +35,6 @@ const UserSidebar: React.FC = (): ReactNode => {
       setExpandedCategory(index);
     }
   };
-  const { user } = useUser();
 
   return (
     <>
@@ -56,10 +54,10 @@ const UserSidebar: React.FC = (): ReactNode => {
             height={96}
           />
           <h4 className="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200">
-            {user?.username}
+            {/* {user?.username} */}
           </h4>
           <p className="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400">
-            {user?.primaryEmailAddress?.emailAddress}
+            {/* {user?.primaryEmailAddress?.emailAddress} */}
           </p>
         </div>
 

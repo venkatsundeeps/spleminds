@@ -2,9 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactNode, useEffect, useState } from "react";
-import { useUser } from "@clerk/clerk-react";
+// import { useUser } from "@clerk/clerk-react";
 import Header from "./Header";
-import { useSession, useOrganizationList } from "@clerk/nextjs";
+// import { useSession, useOrganizationList } from "@clerk/nextjs";
 import router from "next/router";
 
 const Sidebar: React.FC = (): ReactNode => {
@@ -121,16 +121,16 @@ const Sidebar: React.FC = (): ReactNode => {
   //     href: "/dashboard/user/assignments",
   //   },
   // ];
-  const { session } = useSession();
+  // const { session } = useSession();
 
-  const user = session?.user;
-  const userRole = session?.user?.organizationMemberships ?? []; // Add nullish coalescing operator to provide a default empty array value
+  // // const user = session?.user;
+  // // const userRole = session?.user?.organizationMemberships ?? []; // Add nullish coalescing operator to provide a default empty array value
 
-  const isAdmin = userRole.some(
-    (membership) => membership.role === "org:admin"
-  );
-  // console.log(isAdmin);
-  const categories = isAdmin ? managementCategories : [];
+  // // const isAdmin = userRole.some(
+  // //   (membership) => membership.role === "org:admin"
+  // // );
+  // // // console.log(isAdmin);
+  // // const categories = isAdmin ? managementCategories : [];
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
 
   const toggleExpand = (index: number) => {
@@ -154,15 +154,15 @@ const Sidebar: React.FC = (): ReactNode => {
             height={96}
           />
           <h4 className="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200">
-            {user?.username}
+            {/* {user?.username} */}
           </h4>
           <p className="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400">
-            {user?.primaryEmailAddress?.emailAddress}
+            {/* {user?.primaryEmailAddress?.emailAddress} */}
           </p>
         </div>
 
         <div className="h-full mt-6 px-4 pb-4 overflow-y-auto  dark:bg-gray-800">
-          <ul className="space-y-2 font-medium">
+          {/* <ul className="space-y-2 font-medium">
             {categories.map((category, index) => (
               <li key={index} className="group bg-gray-300 rounded-xl">
                 <div
@@ -187,7 +187,7 @@ const Sidebar: React.FC = (): ReactNode => {
                 </ul>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </aside>
     </>
