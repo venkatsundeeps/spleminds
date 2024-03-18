@@ -1,4 +1,3 @@
-import { SignIn } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,7 +9,6 @@ export default function Login() {
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">Sign In</h1>
-            <SignIn />
           </div>
         </div>
         <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
