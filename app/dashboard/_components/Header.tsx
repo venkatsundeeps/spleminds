@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-// import { UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 // import { useClerk } from "@clerk/clerk-react";
 
 // import { useSession, useOrganizationList } from "@clerk/nextjs";
@@ -76,14 +76,14 @@ const Header = () => {
                 onClick={toggleDropdown}
               >
                 <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                  {/* <UserButton /> */}
-                  <Image
+                  <UserButton />
+                  {/* <Image
                     src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
                     className="w-32 rounded-full"
                     width={32}
                     height={32}
                     alt="Avatar"
-                  />
+                  /> */}
                 </div>
               </button>
               {isOpen && (
